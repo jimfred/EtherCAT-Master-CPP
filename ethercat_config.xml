@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EtherCATConfiguration>
+    <!-- Network Interface Configuration -->
+    <NetworkInterface>
+        <!-- Method 1: By adapter name -->
+        <AdapterName>Ethernet</AdapterName>
+        
+        <!-- Method 2: By MAC address (most reliable) -->
+        <MACAddress>00:1B:21:12:34:56</MACAddress>
+        
+        <!-- Method 3: By interface description -->
+        <Description>Intel(R) Ethernet Connection</Description>
+        
+        <!-- Method 4: Auto-detect criteria -->
+        <AutoDetect>
+            <ExcludeVirtual>true</ExcludeVirtual>
+            <PreferGigabit>true</PreferGigabit>
+            <RequireEthernet>true</RequireEthernet>
+        </AutoDetect>
+    </NetworkInterface>
+    
+    <!-- EtherCAT Master Configuration -->
+    <MasterConfiguration>
+        <CycleTime>1000</CycleTime> <!-- microseconds -->
+        <Priority>99</Priority>     <!-- Real-time priority -->
+        <CPUAffinity>1</CPUAffinity> <!-- Bind to specific CPU core -->
+    </MasterConfiguration>
+    
+    <!-- TwinCAT ADS Configuration (alternative approach) -->
+    <TwinCATConfiguration>
+        <UseADS>true</UseADS>
+        <AMSNetID>127.0.0.1.1.1</AMSNetID>
+        <Port>851</Port> <!-- PLC runtime port -->
+        <Timeout>5000</Timeout> <!-- ms -->
+    </TwinCATConfiguration>
+    
+    <!-- EtherCAT Slaves Configuration -->
+    <Slaves>
+        <Slave Position="0" Name="Beckhoff EK1100" ProductCode="0x44c2c52" />
+        <Slave Position="1" Name="Digital Input" ProductCode="0x3e83052" />
+        <Slave Position="2" Name="Digital Output" ProductCode="0x3f03052" />
+    </Slaves>
+    
+    <!-- Process Data Mapping -->
+    <ProcessData>
+        <Inputs StartAddress="0x1000" Size="64" />
+        <Outputs StartAddress="0x1100" Size="64" />
+    </ProcessData>
+</EtherCATConfiguration>
+
