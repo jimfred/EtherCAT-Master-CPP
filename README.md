@@ -2,6 +2,8 @@
 
 This project contains **three different EtherCAT Master applications** for TwinCAT3, each demonstrating different approaches and capabilities.
 
+> 📚 **For development context, architectural decisions, and troubleshooting insights, see [DEVELOPMENT_LOG.md](DEVELOPMENT_LOG.md)**
+
 ## 🏗️ **Applications Included:**
 
 ### 1. 🔵 **Basic EtherCAT Master** (`main.cpp`)

@@ -1,9 +1,11 @@
-# EtherCAT Master C++ Applications - Development Log
+# Development Log & Context
 
-## Project Overview
+> **Purpose:** This file captures the **why** behind architectural decisions, development insights, and context that influenced the project design. For **what** the project does and **how** to use it, see [README.md](README.md).
+
+## Project Genesis
 **Created:** June 19-20, 2025  
-**Purpose:** Standalone C++ EtherCAT Master applications for TwinCAT3 without PLC dependency  
-**Approach:** Direct ADS communication to TwinCAT for EtherCAT control
+**Context:** AI-assisted development session  
+**Goal:** Create standalone C++ EtherCAT Masters without PLC dependency
 
 ## Architecture Decisions
 
@@ -54,21 +56,11 @@
   - Lib x64: `C:\TwinCAT\AdsApi\TcAdsDll\x64\lib`
   - Lib x86: `C:\TwinCAT\AdsApi\TcAdsDll\Lib`
 
-## Workflow Understanding
-
-### Typical Usage Sequence
-1. Start TwinCAT3
-2. Create EtherCAT Master in System Manager
-3. Link to physical Ethernet port
-4. Load ENI file OR scan for slaves and configure PDO mapping
-5. Activate configuration
-6. Set TwinCAT to RUN mode
-7. Run C++ application (EtherCAT automatically goes to OP mode)
-
-### ENI File vs Live Configuration
-**Two approaches identified:**
-- **Import ENI:** Pre-configured XML with slave topology and PDO mapping
-- **Live Scan:** TwinCAT scans network, manual PDO configuration
+## ENI Configuration Insights
+**Two approaches discovered during development:**
+- **Import ENI:** Pre-configured XML approach (faster setup)
+- **Live Scan:** Manual configuration approach (more flexible)
+**Key insight:** ENI files replace PLC variable mapping in standalone approach
 
 ## Key Insights & Lessons Learned
 
